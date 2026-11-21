@@ -1,0 +1,1822 @@
+
+/* =========================================================
+   FORMA — NEW CINEMATIC DESIGN SYSTEM
+   ========================================================= */
+
+.forma-home-new {
+  --forma-black: #111312;
+  --forma-dark: #191b19;
+  --forma-panel: #20221f;
+  --forma-paper: #f1efe8;
+  --forma-white: #f7f6f2;
+  --forma-muted: #979891;
+  --forma-line: rgba(255, 255, 255, 0.15);
+  --forma-accent: #c6b393;
+
+  background: var(--forma-black);
+  color: var(--forma-white);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: clip;
+}
+
+.forma-home-new * {
+  box-sizing: border-box;
+}
+
+.forma-home-new a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.forma-home-new button,
+.forma-home-new input {
+  font: inherit;
+}
+
+.forma-home-new button {
+  color: inherit;
+}
+
+.forma-home-new img {
+  object-fit: cover;
+}
+
+.forma-home-new section {
+  position: relative;
+}
+
+.forma-home-new h1,
+.forma-home-new h2,
+.forma-home-new h3,
+.forma-home-new p {
+  margin: 0;
+}
+
+.forma-home-new h1,
+.forma-home-new h2,
+.forma-home-new h3 {
+  font-weight: 400;
+}
+
+.forma-home-new em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* =========================================================
+   PROGRESS BAR
+   ========================================================= */
+
+.forma-scroll-progress {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--forma-accent);
+  transform-origin: left;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.forma-header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 22px 5.2%;
+  color: white;
+  transition:
+    padding 0.4s ease,
+    background 0.4s ease,
+    backdrop-filter 0.4s ease;
+}
+
+.forma-header-scrolled {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  background: rgba(17, 19, 18, 0.78);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.forma-header-inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  align-items: center;
+}
+
+.forma-logo {
+  display: inline-flex;
+  align-items: flex-start;
+  font-size: 29px;
+  font-weight: 500;
+  letter-spacing: -1.9px;
+  width: fit-content;
+}
+
+.forma-logo span {
+  font-size: 10px;
+  margin-left: 3px;
+  margin-top: 3px;
+  letter-spacing: 0;
+}
+
+.forma-header-tagline {
+  font-size: 10px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.forma-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 48px);
+}
+
+.forma-nav a {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.72);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.forma-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background: white;
+  transition: width 0.35s ease;
+}
+
+.forma-nav a:hover {
+  color: white;
+}
+
+.forma-nav a:hover::after {
+  width: 100%;
+}
+
+.forma-header-contact {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 11px;
+}
+
+.forma-header-contact svg {
+  width: 33px;
+  height: 33px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.forma-header-contact:hover svg {
+  background: white;
+  color: black;
+  transform: rotate(45deg);
+}
+
+.forma-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--forma-line);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.forma-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--forma-black);
+  overflow-y: auto;
+}
+
+.forma-mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 100px 7% 50px;
+}
+
+.forma-mobile-menu-label {
+  color: var(--forma-accent);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.forma-mobile-menu-inner > div:not(.forma-mobile-menu-footer) {
+  border-bottom: 1px solid var(--forma-line);
+}
+
+.forma-mobile-menu-inner > div > a {
+  display: grid;
+  grid-template-columns: 35px 1fr 30px;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+  font-size: clamp(30px, 9vw, 58px);
+  letter-spacing: -2px;
+}
+
+.forma-menu-number {
+  font-size: 10px;
+  color: var(--forma-muted);
+  letter-spacing: 0;
+}
+
+.forma-mobile-menu-footer {
+  padding-top: 35px;
+  color: var(--forma-muted);
+  font-size: 12px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.forma-hero {
+  height: 100svh;
+  min-height: 700px;
+  overflow: hidden;
+  background: #161816;
+  isolation: isolate;
+}
+
+.forma-hero-image-wrap {
+  position: absolute;
+  inset: -5%;
+  will-change: transform;
+}
+
+.forma-hero-image {
+  object-position: center 55%;
+}
+
+.forma-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 13, 12, 0.58) 0%,
+      rgba(12, 13, 12, 0.17) 55%,
+      rgba(12, 13, 12, 0.05) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(12, 13, 12, 0.7) 0%,
+      transparent 40%,
+      rgba(12, 13, 12, 0.2) 100%
+    );
+}
+
+.forma-hero-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 8%;
+  width: 84%;
+  transform: translateY(-42%);
+}
+
+.forma-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.9px;
+  color: #777b74;
+}
+
+.forma-eyebrow.is-light {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.forma-eyebrow-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--forma-accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.forma-hero h1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+  font-size: clamp(68px, 10.6vw, 160px);
+  line-height: 0.9;
+  letter-spacing: -0.085em;
+  font-weight: 400;
+  max-width: 1200px;
+}
+
+.forma-hero h1 span {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+}
+
+.forma-hero h1 em {
+  color: #d2c1a5;
+}
+
+.forma-hero-second-line {
+  margin-left: 9%;
+}
+
+.forma-hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin-top: 55px;
+}
+
+.forma-hero-bottom > p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.forma-hero-link {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  transition: gap 0.3s ease;
+}
+
+.forma-hero-link:hover {
+  gap: 35px;
+}
+
+.forma-hero-index {
+  position: absolute;
+  right: 5.2%;
+  bottom: 100px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.forma-hero-index-line {
+  width: 65px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.forma-hero-location {
+  position: absolute;
+  bottom: 37px;
+  left: 5.2%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.forma-location-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--forma-accent);
+}
+
+/* =========================================================
+   MANIFESTO
+   ========================================================= */
+
+.forma-manifesto {
+  background: var(--forma-paper);
+  color: var(--forma-black);
+  padding: 150px 8% 130px;
+}
+
+.forma-manifesto-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.forma-manifesto-top .forma-eyebrow {
+  color: #686b65;
+}
+
+.forma-section-side-note {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #7b7b73;
+  text-align: right;
+}
+
+.forma-manifesto-heading {
+  display: grid;
+  grid-template-columns: 1.6fr 0.6fr;
+  gap: 8%;
+  margin-top: 100px;
+  align-items: end;
+}
+
+.forma-manifesto-heading h2 {
+  font-size: clamp(60px, 8.6vw, 130px);
+  letter-spacing: -0.09em;
+  line-height: 0.91;
+}
+
+.forma-manifesto-heading h2 span {
+  color: #777971;
+}
+
+.forma-manifesto-heading h2 em {
+  color: #b49d7b;
+}
+
+.forma-manifesto-aside {
+  padding-bottom: 8px;
+}
+
+.forma-manifesto-aside p {
+  max-width: 310px;
+  font-size: 12px;
+  line-height: 1.95;
+  color: #777971;
+  margin-bottom: 20px;
+}
+
+.forma-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #9a9b94;
+  font-size: 11px;
+}
+
+.forma-text-link svg {
+  transition: transform 0.3s ease;
+}
+
+.forma-text-link:hover svg {
+  transform: translateX(5px);
+}
+
+.forma-manifesto-image {
+  position: relative;
+  height: min(70vw, 760px);
+  min-height: 420px;
+  margin-top: 120px;
+  overflow: hidden;
+}
+
+.forma-manifesto-image-inner {
+  position: absolute;
+  inset: -12% 0;
+  will-change: transform;
+}
+
+.forma-manifesto-image-inner img {
+  object-position: center 60%;
+}
+
+.forma-image-label {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   CINEMATIC EXPERIENCE
+   ========================================================= */
+
+.forma-experience {
+  height: 260vh;
+  background: #111312;
+  color: white;
+  perspective: 1200px;
+}
+
+.forma-experience-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 650px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forma-experience-image {
+  position: absolute;
+  inset: 0;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.forma-experience-image img {
+  object-position: center;
+}
+
+.forma-experience-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 12, 11, 0.62) 0%,
+      rgba(10, 12, 11, 0.25) 45%,
+      transparent 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(10, 12, 11, 0.3),
+      transparent 50%,
+      rgba(10, 12, 11, 0.12)
+    );
+}
+
+.forma-experience-content {
+  position: absolute;
+  left: 9%;
+  top: 50%;
+  width: min(600px, 80%);
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.forma-experience-content h2 {
+  margin-top: 40px;
+  font-size: clamp(75px, 10vw, 150px);
+  line-height: 0.88;
+  letter-spacing: -0.085em;
+}
+
+.forma-experience-content h2 em {
+  color: var(--forma-accent);
+}
+
+.forma-experience-content > p {
+  max-width: 320px;
+  margin-top: 35px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.forma-circle-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 130px;
+  height: 130px;
+  padding: 22px;
+  flex-direction: column;
+  margin-top: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  font-size: 11px;
+  line-height: 1.5;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    transform 0.4s ease;
+}
+
+.forma-circle-cta:hover {
+  background: white;
+  color: black;
+  transform: scale(1.06);
+}
+
+.forma-circle-cta svg {
+  align-self: flex-end;
+}
+
+.forma-experience-counter {
+  position: absolute;
+  right: 6%;
+  bottom: 50px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+}
+
+.forma-counter-line {
+  width: 45px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* =========================================================
+   PROPERTY SHOWCASE
+   ========================================================= */
+
+.forma-property-showcase {
+  background: var(--forma-paper);
+  color: var(--forma-black);
+  padding: 130px 8% 140px;
+}
+
+.forma-property-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 70px;
+}
+
+.forma-property-heading .forma-eyebrow {
+  color: #71736c;
+}
+
+.forma-property-heading h2 {
+  font-size: clamp(65px, 9vw, 130px);
+  line-height: 0.91;
+  letter-spacing: -0.085em;
+  margin-top: 35px;
+}
+
+.forma-property-heading h2 em {
+  color: #a68f70;
+}
+
+.forma-property-heading > p {
+  width: 280px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: #777971;
+  padding-bottom: 10px;
+}
+
+.forma-property-stage {
+  position: relative;
+  height: min(67vw, 800px);
+  min-height: 540px;
+  overflow: hidden;
+  background: #252725;
+}
+
+.forma-property-feature-image {
+  position: absolute;
+  inset: 0;
+}
+
+.forma-property-feature-image img {
+  object-position: center;
+}
+
+.forma-property-image-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(12, 13, 12, 0.85) 0%,
+    rgba(12, 13, 12, 0.2) 50%,
+    rgba(12, 13, 12, 0.2) 100%
+  );
+}
+
+.forma-property-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 35px;
+  color: white;
+}
+
+.forma-property-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.forma-property-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.forma-property-info {
+  max-width: 600px;
+}
+
+.forma-property-location {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.forma-property-info h3 {
+  font-size: clamp(55px, 8vw, 100px);
+  letter-spacing: -0.08em;
+  line-height: 0.95;
+  margin-top: 15px;
+}
+
+.forma-property-info > p {
+  max-width: 350px;
+  margin-top: 18px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.forma-property-price {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 30px;
+}
+
+.forma-property-price span {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 10px;
+}
+
+.forma-property-price strong {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.forma-property-discover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  font-size: 10px;
+  white-space: nowrap;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.forma-property-discover:hover {
+  background: white;
+  color: black;
+}
+
+.forma-property-selector {
+  border-bottom: 1px solid #d6d4cd;
+}
+
+.forma-property-selector-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 60px 1.4fr 1fr 35px;
+  gap: 15px;
+  align-items: center;
+  padding: 23px 0;
+  background: transparent;
+  color: #777971;
+  border: 0;
+  border-top: 1px solid #d6d4cd;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.forma-property-selector-item.active {
+  color: #191a18;
+}
+
+.forma-selector-index {
+  font-size: 10px;
+}
+
+.forma-selector-name {
+  font-size: 18px;
+  letter-spacing: -0.5px;
+}
+
+.forma-selector-location {
+  font-size: 10px;
+}
+
+.forma-property-selector-item svg {
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.forma-property-selector-item:hover svg,
+.forma-property-selector-item.active svg {
+  opacity: 1;
+  transform: translate(3px, -3px);
+}
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.forma-stats {
+  background: var(--forma-black);
+  padding: 120px 8%;
+  color: white;
+}
+
+.forma-stats-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.forma-stats-heading > p {
+  font-size: 11px;
+  color: var(--forma-muted);
+}
+
+.forma-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 85px;
+}
+
+.forma-stat {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--forma-line);
+  padding-top: 25px;
+  padding-right: 20px;
+}
+
+.forma-stat-number {
+  font-size: clamp(60px, 8vw, 110px);
+  letter-spacing: -0.09em;
+  line-height: 1;
+}
+
+.forma-stat-label {
+  margin-top: 25px;
+  color: #999d95;
+  font-size: 11px;
+}
+
+/* =========================================================
+   COLLECTION
+   ========================================================= */
+
+.forma-collection {
+  background: #e8e6df;
+  color: #171917;
+  padding: 130px 8%;
+}
+
+.forma-collection-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 65px;
+}
+
+.forma-collection-heading .forma-eyebrow {
+  color: #777971;
+}
+
+.forma-collection-heading h2 {
+  font-size: clamp(70px, 9vw, 130px);
+  line-height: 0.9;
+  letter-spacing: -0.09em;
+  margin-top: 35px;
+}
+
+.forma-collection-heading h2 em {
+  color: #a28b6b;
+}
+
+.forma-collection-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 220px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #a5a59d;
+}
+
+.forma-collection-search svg {
+  color: #777971;
+}
+
+.forma-collection-search input {
+  width: 100%;
+  background: transparent;
+  outline: none;
+  border: 0;
+  font-size: 11px;
+  color: #171917;
+}
+
+.forma-collection-search input::placeholder {
+  color: #888a82;
+}
+
+.forma-collection-list {
+  border-top: 1px solid #bcbcb4;
+}
+
+.forma-collection-row {
+  display: grid;
+  grid-template-columns: 50px 1.5fr 1.1fr 1fr 100px 25px;
+  align-items: center;
+  gap: 20px;
+  padding: 26px 0;
+  border-bottom: 1px solid #bcbcb4;
+  transition: padding 0.3s ease;
+}
+
+.forma-collection-row:hover {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.forma-collection-number {
+  font-size: 10px;
+  color: #888a82;
+}
+
+.forma-collection-name {
+  font-size: 19px;
+  letter-spacing: -0.5px;
+}
+
+.forma-collection-location,
+.forma-collection-type {
+  font-size: 10px;
+  color: #777971;
+}
+
+.forma-collection-price {
+  font-size: 11px;
+}
+
+.forma-collection-arrow {
+  display: flex;
+  justify-content: flex-end;
+  transition: transform 0.3s ease;
+}
+
+.forma-collection-row:hover .forma-collection-arrow {
+  transform: translate(4px, -4px);
+}
+
+.forma-collection-empty {
+  padding: 30px 0;
+  color: #777971;
+  font-size: 12px;
+}
+
+.forma-collection-all {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  width: fit-content;
+  margin-top: 35px;
+  font-size: 11px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #999a91;
+}
+
+/* =========================================================
+   JOURNAL
+   ========================================================= */
+
+.forma-journal {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  background: #1b1d1a;
+  color: white;
+  min-height: 780px;
+}
+
+.forma-journal-image {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.forma-journal-image img {
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.forma-journal:hover .forma-journal-image img {
+  transform: scale(1.035);
+}
+
+.forma-journal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10%;
+}
+
+.forma-journal-content h2 {
+  font-size: clamp(55px, 7vw, 100px);
+  letter-spacing: -0.08em;
+  line-height: 0.92;
+  margin-top: 50px;
+}
+
+.forma-journal-content h2 em {
+  color: var(--forma-accent);
+}
+
+.forma-journal-content > p {
+  max-width: 320px;
+  font-size: 11px;
+  line-height: 1.9;
+  color: #a6aaa2;
+  margin-top: 30px;
+}
+
+.forma-journal-link {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: fit-content;
+  margin-top: 40px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #666a62;
+  font-size: 11px;
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.forma-contact {
+  padding: 130px 8% 110px;
+  background: #121412;
+  color: white;
+}
+
+.forma-contact-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.forma-contact-top > span {
+  font-size: 10px;
+  color: var(--forma-muted);
+}
+
+.forma-contact h2 {
+  margin-top: 100px;
+  font-size: clamp(85px, 12vw, 180px);
+  line-height: 0.83;
+  letter-spacing: -0.09em;
+}
+
+.forma-contact h2 em {
+  color: var(--forma-accent);
+}
+
+.forma-contact-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-top: 90px;
+}
+
+.forma-contact-bottom > p {
+  max-width: 320px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: #9da19a;
+}
+
+.forma-contact-form {
+  display: grid;
+  grid-template-columns: 1fr 45px;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #777b72;
+  padding-bottom: 13px;
+}
+
+.forma-contact-form input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: white;
+  font-size: 12px;
+}
+
+.forma-contact-form input::placeholder {
+  color: #8c9088;
+}
+
+.forma-contact-form button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #777b72;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.forma-contact-form button:hover {
+  color: black;
+  background: white;
+  transform: rotate(45deg);
+}
+
+.forma-contact-form > span {
+  grid-column: 1 / -1;
+  color: #777b72;
+  font-size: 9px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.forma-footer {
+  background: #0c0d0c;
+  color: white;
+  padding: 65px 8% 25px;
+}
+
+.forma-footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 55px;
+  border-bottom: 1px solid var(--forma-line);
+}
+
+.forma-footer-logo {
+  font-size: 35px;
+}
+
+.forma-footer-top > p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #858982;
+}
+
+.forma-footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 11px;
+}
+
+.forma-footer-contact svg {
+  transition: transform 0.3s ease;
+}
+
+.forma-footer-contact:hover svg {
+  transform: translate(5px, -5px);
+}
+
+.forma-footer-links {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+  padding: 50px 0;
+}
+
+.forma-footer-links > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.forma-footer-links > div > span {
+  color: #787c75;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+.forma-footer-links > div > a,
+.forma-footer-links > div > p {
+  color: #c3c5bf;
+  font-size: 11px;
+}
+
+.forma-footer-links > div > a {
+  transition: color 0.3s ease;
+}
+
+.forma-footer-links > div > a:hover {
+  color: white;
+}
+
+.forma-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--forma-line);
+  color: #787c75;
+  font-size: 9px;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .forma-header-inner {
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+  }
+
+  .forma-header-tagline {
+    display: none;
+  }
+
+  .forma-nav {
+    grid-column: 2 / 4;
+  }
+
+  .forma-header-contact {
+    grid-column: 4;
+  }
+
+  .forma-manifesto-heading {
+    grid-template-columns: 1fr 0.55fr;
+    gap: 5%;
+  }
+
+  .forma-property-selector-item {
+    grid-template-columns: 45px 1.3fr 1fr 30px;
+  }
+
+  .forma-selector-location {
+    display: none;
+  }
+
+  .forma-collection-row {
+    grid-template-columns: 35px 1.4fr 1fr 100px 25px;
+  }
+
+  .forma-collection-type {
+    display: none;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .forma-header {
+    padding: 18px 6%;
+  }
+
+  .forma-header-scrolled {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .forma-header-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .forma-logo {
+    font-size: 25px;
+  }
+
+  .forma-nav,
+  .forma-header-contact {
+    display: none;
+  }
+
+  .forma-menu-button {
+    display: flex;
+  }
+
+  .forma-hero {
+    min-height: 680px;
+    height: 100svh;
+  }
+
+  .forma-hero-image-wrap {
+    inset: 0;
+  }
+
+  .forma-hero-image {
+    object-position: 62% center;
+  }
+
+  .forma-hero-overlay {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(12, 13, 12, 0.75),
+        rgba(12, 13, 12, 0.12) 65%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(12, 13, 12, 0.35),
+        transparent
+      );
+  }
+
+  .forma-hero-content {
+    left: 6%;
+    width: 88%;
+    top: 47%;
+  }
+
+  .forma-hero h1 {
+    font-size: clamp(65px, 15vw, 105px);
+    margin-top: 28px;
+  }
+
+  .forma-hero-second-line {
+    margin-left: 3%;
+  }
+
+  .forma-hero-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 35px;
+  }
+
+  .forma-hero-bottom > p {
+    font-size: 11px;
+  }
+
+  .forma-hero-index {
+    bottom: 95px;
+    right: 6%;
+  }
+
+  .forma-hero-location {
+    bottom: 25px;
+    left: 6%;
+  }
+
+  .forma-manifesto {
+    padding: 90px 6% 80px;
+  }
+
+  .forma-manifesto-top {
+    align-items: flex-start;
+  }
+
+  .forma-section-side-note {
+    font-size: 9px;
+  }
+
+  .forma-manifesto-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 75px;
+    gap: 45px;
+  }
+
+  .forma-manifesto-heading h2 {
+    font-size: clamp(58px, 13.5vw, 100px);
+  }
+
+  .forma-manifesto-aside {
+    max-width: 400px;
+  }
+
+  .forma-manifesto-aside p {
+    font-size: 11px;
+  }
+
+  .forma-manifesto-image {
+    margin-top: 65px;
+    height: 110vw;
+    min-height: 400px;
+  }
+
+  .forma-image-label {
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+    font-size: 8px;
+    gap: 15px;
+  }
+
+  .forma-experience {
+    height: 220vh;
+  }
+
+  .forma-experience-sticky {
+    min-height: 650px;
+    height: 100svh;
+  }
+
+  .forma-experience-image {
+    inset: 0;
+  }
+
+  .forma-experience-image img {
+    object-position: 60% center;
+  }
+
+  .forma-experience-overlay {
+    background: linear-gradient(
+      0deg,
+      rgba(10, 12, 11, 0.65),
+      rgba(10, 12, 11, 0.05) 75%
+    );
+  }
+
+  .forma-experience-content {
+    left: 6%;
+    top: 52%;
+    width: 88%;
+  }
+
+  .forma-experience-content h2 {
+    font-size: clamp(75px, 16vw, 120px);
+    margin-top: 35px;
+  }
+
+  .forma-experience-content > p {
+    margin-top: 25px;
+    font-size: 11px;
+  }
+
+  .forma-circle-cta {
+    width: 105px;
+    height: 105px;
+    margin-top: 25px;
+    padding: 17px;
+    font-size: 10px;
+  }
+
+  .forma-experience-counter {
+    bottom: 30px;
+    right: 6%;
+  }
+
+  .forma-property-showcase {
+    padding: 90px 6%;
+  }
+
+  .forma-property-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 45px;
+  }
+
+  .forma-property-heading h2 {
+    font-size: clamp(65px, 13.5vw, 105px);
+    margin-top: 30px;
+  }
+
+  .forma-property-heading > p {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .forma-property-stage {
+    height: 125vw;
+    min-height: 520px;
+    max-height: 750px;
+  }
+
+  .forma-property-feature-image img {
+    object-position: 55% center;
+  }
+
+  .forma-property-overlay {
+    padding: 20px;
+  }
+
+  .forma-property-top {
+    font-size: 8px;
+  }
+
+  .forma-property-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .forma-property-info h3 {
+    font-size: clamp(52px, 12vw, 85px);
+  }
+
+  .forma-property-info > p {
+    font-size: 10px;
+  }
+
+  .forma-property-price {
+    margin-top: 20px;
+  }
+
+  .forma-property-discover {
+    padding: 13px 15px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .forma-property-selector-item {
+    grid-template-columns: 30px 1fr 25px;
+    padding: 20px 0;
+    gap: 10px;
+  }
+
+  .forma-selector-index {
+    font-size: 9px;
+  }
+
+  .forma-selector-name {
+    font-size: 15px;
+  }
+
+  .forma-property-selector-item svg {
+    opacity: 1;
+  }
+
+  .forma-stats {
+    padding: 90px 6%;
+  }
+
+  .forma-stats-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .forma-stats-heading > p {
+    font-size: 10px;
+  }
+
+  .forma-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 45px 25px;
+    margin-top: 65px;
+  }
+
+  .forma-stat-number {
+    font-size: clamp(65px, 15vw, 95px);
+  }
+
+  .forma-stat-label {
+    margin-top: 17px;
+    font-size: 10px;
+    max-width: 120px;
+    line-height: 1.5;
+  }
+
+  .forma-collection {
+    padding: 90px 6%;
+  }
+
+  .forma-collection-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+
+  .forma-collection-heading h2 {
+    font-size: clamp(65px, 14vw, 110px);
+  }
+
+  .forma-collection-search {
+    width: 100%;
+  }
+
+  .forma-collection-row {
+    grid-template-columns: 25px 1fr 30px;
+    gap: 12px;
+    padding: 20px 0;
+  }
+
+  .forma-collection-number {
+    font-size: 9px;
+  }
+
+  .forma-collection-name {
+    font-size: 16px;
+  }
+
+  .forma-collection-location,
+  .forma-collection-type {
+    display: none;
+  }
+
+  .forma-collection-price {
+    grid-column: 2;
+    font-size: 10px;
+    color: #777971;
+  }
+
+  .forma-collection-arrow {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+
+  .forma-journal {
+    grid-template-columns: 1fr;
+  }
+
+  .forma-journal-image {
+    min-height: 105vw;
+    max-height: 650px;
+  }
+
+  .forma-journal-content {
+    padding: 80px 6%;
+  }
+
+  .forma-journal-content h2 {
+    font-size: clamp(65px, 14vw, 110px);
+    margin-top: 40px;
+  }
+
+  .forma-journal-content > p {
+    font-size: 11px;
+  }
+
+  .forma-contact {
+    padding: 90px 6%;
+  }
+
+  .forma-contact-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .forma-contact-top > span {
+    font-size: 9px;
+  }
+
+  .forma-contact h2 {
+    margin-top: 75px;
+    font-size: clamp(80px, 17vw, 140px);
+  }
+
+  .forma-contact-bottom {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    margin-top: 70px;
+  }
+
+  .forma-contact-bottom > p {
+    font-size: 11px;
+  }
+
+  .forma-contact-form {
+    gap: 10px;
+  }
+
+  .forma-contact-form input {
+    font-size: 11px;
+  }
+
+  .forma-footer {
+    padding: 55px 6% 25px;
+  }
+
+  .forma-footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-bottom: 40px;
+  }
+
+  .forma-footer-logo {
+    font-size: 32px;
+  }
+
+  .forma-footer-top > p {
+    font-size: 11px;
+  }
+
+  .forma-footer-links {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    padding: 40px 0;
+  }
+
+  .forma-footer-links > div > a,
+  .forma-footer-links > div > p {
+    font-size: 10px;
+  }
+
+  .forma-footer-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    font-size: 8px;
+  }
+
+  .forma-footer-bottom > span:nth-child(2) {
+    text-align: right;
+  }
+
+  .forma-footer-bottom > a {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .forma-hero h1 {
+    font-size: 63px;
+  }
+
+  .forma-manifesto-heading h2 {
+    font-size: 56px;
+  }
+
+  .forma-experience-content h2 {
+    font-size: 70px;
+  }
+
+  .forma-property-info h3 {
+    font-size: 50px;
+  }
+
+  .forma-contact h2 {
+    font-size: 76px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .forma-home-new *,
+  .forma-home-new *::before,
+  .forma-home-new *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
